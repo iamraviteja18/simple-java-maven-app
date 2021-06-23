@@ -4,6 +4,6 @@ COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package
 
 FROM openjdk:11-jre-slim
-COPY --from=build /home/app/target/my-app-1.0-SNAPSHOT.jar /usr/local/lib/my-app.jar
+COPY --from=build /home/app/target/mymaven-1.0-SNAPSHOT.jar /usr/local/lib/mymaven.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/usr/local/lib/my-app.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/lib/mymaven.jar"]
